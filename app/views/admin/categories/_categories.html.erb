@@ -1,0 +1,5 @@
+<% @categories.each do |category| %>
+    id: <%= category.id %> | Категория: <%= category.name %>
+    <%= link_to 'Редактировать', edit_admin_category_path(category) %> |
+    <%= link_to 'Удаить Категорию', admin_category_path(category), method: :delete %> <br>
+<% end %>
