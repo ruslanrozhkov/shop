@@ -1,0 +1,8 @@
+<% @comments.each do |comment| %>
+    Товар: <%= link_to comment.product.title, admin_product_path(comment.product) %> <br>
+    Автор: <%= comment.name %> | Email <%= comment.email %><br>
+    Текст:<br>
+    <%= comment.message %> <br>
+    <%= link_to 'Редактировать', edit_admin_comment_path(comment) %> |
+    <%= link_to 'Удалить', admin_comments_path(comment), method: :delete %> <br>
+<% end %>

@@ -57,3 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'simple_form'
+#gem 'mini_magick'
+#gem 'carrierwave', '~> 1.0'
+#gem 'ckeditor', '4.1.3'

@@ -1,0 +1,6 @@
+<%= simple_form_for [:admin, @comment] do |f| %>
+    <%= f.input :email %>
+    <%= f.input :name %>
+    <%= f.text_area :message %>
+    <%= f.button :submit, 'Отправить' %>
+<% end %>
