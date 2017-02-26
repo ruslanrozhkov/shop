@@ -10,7 +10,7 @@ class Admin::CategoriesController < AdminController
   end
 
   def create
-    @category = Category.create(category_params)
+    @category = Category.new(category_params)
     respond_to do |format|
       if @category.save
         format.html { redirect_to admin_categories_path, notice: 'Категория успешно создана' }

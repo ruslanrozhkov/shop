@@ -11,7 +11,7 @@ class Admin::ProductsController < AdminController
   end
 
   def create
-    @product = Product.create(product_params)
+    @product = Product.new(product_params)
     respond_to do |format|
       if @product.save
         format.html { redirect_to admin_products_path, notice: 'Товар успешно добавлен' }
@@ -53,6 +53,6 @@ class Admin::ProductsController < AdminController
   end
 
   def product_params
-    params.require(:product).permit(:id, :category_id, :title, :description)
+    params.require(:product).permit(:id, :category_id, :title, :description, :pictures)
   end
 end
