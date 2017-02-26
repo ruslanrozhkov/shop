@@ -1,5 +1,5 @@
-class Admin::ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :update, :destroy]
+class Admin::ProductsController < AdminController
+  before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
     @products = Product.all.limit(10)
@@ -23,6 +23,9 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @categories = Category.all
+  end
+
+  def show
   end
 
   def update

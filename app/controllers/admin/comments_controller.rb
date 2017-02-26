@@ -1,4 +1,4 @@
-class Admin::CommentsController < ApplicationController
+class Admin::CommentsController < AdminController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def index
