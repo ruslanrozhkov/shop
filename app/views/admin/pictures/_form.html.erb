@@ -1,0 +1,4 @@
+<%= simple_form_for [:admin, :product, @picture], html: { multipart: true } do |f| %>
+    <%= f.file_field :image, multiple: true, label: 'Выберите изображения' %>
+    <%= f.button :submit, 'Отправить' %>
+<% end %>

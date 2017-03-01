@@ -1,0 +1,5 @@
+<% @pictures.each do |picture| %>
+    id: <%= picture.id %> <br>
+    <%= image_tag picture.image.small.url %>
+    <%= link_to 'Удалить', admin_product_picture_path(picture.product_id, picture), method: :delete,  data: { confirm: 'Удалить изображение?' } %><br>
+<% end %>

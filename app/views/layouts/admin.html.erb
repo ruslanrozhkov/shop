@@ -4,13 +4,34 @@
   <title>Dashboard</title>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'admin' %>
+
+
+  <%= javascript_include_tag 'admin' %>
+
 </head>
 
-<body>
-<div class="container">
-  <%= yield %>
+<body class="nav-md footer_fixed">
+
+<div class="container body">
+  <div class="main_container">
+
+    <%= render 'layouts/admin/sidebar' %>
+    <%= render 'layouts/admin/top_nav' %>
+
+
+    <div class="right_col" role="main">
+
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= render 'layouts/admin/footer' %>
+
+  </div>
 </div>
+
 </body>
 </html>
