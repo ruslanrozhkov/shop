@@ -1,4 +1,8 @@
+<% if @picture.present? %>
 <%= image_tag @picture.image.thumb.url, class: 'alignleft' %>
+    <% else %>
+    <%= image_tag 'no_image.jpg', class: 'alignleft' %>
+<% end %>
 
 <strong>Заголовок:</strong><br>
 <%= @product.title %><br>

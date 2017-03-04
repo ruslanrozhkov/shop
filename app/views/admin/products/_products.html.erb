@@ -1,12 +1,17 @@
 <% @products.each do |product| %>
-
     <strong>Заголовок:</strong>
     <%= link_to product.title, admin_product_path(product) %><br>
     <strong>Категория:</strong>
     <%= product.category.name %><br>
 
-    <%= image_tag picture(product.picture_id).image.thumb.url, class: 'thumbnail' %>
+    <% if product.picture_id.present? %>
+        <%= image_tag product.picture(product.picture_id).image.thumb.url, class: 'thumbnail' %>
+    <% else %>
+        <%= image_tag 'no_image.jpg', class: 'thumbnail' %>
+    <% end %>
 
-    <%= link_to 'Редактировать', edit_admin_product_path(product), class: 'btn btn-round btn-success' %> |
-    <%= link_to  'Изображения', admin_product_pictures_path(product), class: 'btn btn-round btn-primary' %><br>
+    <%= link_to 'Редактировать', edit_admin_product_path(product), class: 'btn btn-round btn-default' %>
+    <%= link_to 'Изображения', admin_product_pictures_path(product), class: 'btn btn-round btn-success' %>
+    <%= link_to 'Параметры', admin_params_path(product), class: 'btn btn-round btn-primary' %>
+    <%= link_to 'Удалить', admin_product_path(product), method: :delete, class: 'btn btn-round btn-danger', data: { confirm: 'Удалить товар?' } %> <br>
 <% end %>

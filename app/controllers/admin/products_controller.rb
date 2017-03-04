@@ -1,5 +1,4 @@
 class Admin::ProductsController < AdminController
-  helper Admin::ProductsHelper
   before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -15,7 +14,7 @@ class Admin::ProductsController < AdminController
     @product = Product.new(product_params)
     respond_to do |format|
       if @product.save
-        format.html { redirect_to admin_products_path, notice: 'Товар успешно добавлен' }
+        format.html { redirect_to new_admin_product_item_path(@product), notice: 'Товар успешно добавлен' }
       else
         format.html { render :new }
       end
@@ -31,7 +30,7 @@ class Admin::ProductsController < AdminController
     color = ParameterName.where(name: 'color')
     @sizes = @product.parameter_values.where(parameter_name_id: size)
     @colors = @product.parameter_values.where(parameter_name_id: color)
-    @picture = Picture.find(@product.picture_id)
+    @picture = @product.picture(@product.picture_id)
   end
 
   def update
