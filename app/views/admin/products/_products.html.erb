@@ -3,7 +3,8 @@
     <%= link_to product.title, admin_product_path(product) %><br>
     <strong>Категория:</strong>
     <%= product.category.name %><br>
-
+    <strong>Цена:</strong>
+    <%= number_to_currency(product.price.to_d / 100) %><br>
     <% if product.picture_id.present? %>
         <%= image_tag product.picture(product.picture_id).image.thumb.url, class: 'thumbnail' %>
     <% else %>

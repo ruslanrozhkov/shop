@@ -1,6 +1,7 @@
 <%= simple_form_for [:admin, @product] do |f| %>
     <%= f.association :category, label: 'Категория', prompt: 'Выберите категорию' %>
     <%= f.input :title, label: false, placeholder: 'Заголовок' %>
+    <%= f.input :price, label: false, placeholder: 'Стоимость товара в $USD' %>
     <%= f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } } %>
     <%= f.button :submit, 'Отправить' %>
 <% end %>

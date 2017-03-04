@@ -8,6 +8,8 @@
 <%= @product.title %><br>
 <strong>Категория:</strong><br>
 <%= @product.category.name %><br>
+<strong>Цена:</strong><br>
+<%= number_to_currency(@product.price.to_d / 100) %><br>
 <%= render 'product_items' %>
 <strong>Описание:</strong><br>
 <%= @product.description.html_safe %><br>
