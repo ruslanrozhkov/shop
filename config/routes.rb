@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :categories
     resources :products do
       resources :pictures
+      resources :items, controller: 'product_items'
+    end
+    resources :params, controller: 'parameter_names' do
+      resources :values, controller: 'parameter_values'
     end
     resources :comments
   end

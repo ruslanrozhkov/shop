@@ -1,0 +1,4 @@
+<%= simple_form_for(@parameter_value, :url => admin_param_values_path) do |f| %>
+    <%= f.input :value, label: false, placeholder: 'Введите значение параметра'%>
+    <%= f.button :submit, 'Отправить', class: 'btn btn-primary' %>
+<% end %>

@@ -1,4 +1,5 @@
 class Admin::ProductsController < AdminController
+  helper Admin::ProductsHelper
   before_action :set_product, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -26,6 +27,11 @@ class Admin::ProductsController < AdminController
   end
 
   def show
+    size = ParameterName.where(name: 'size')
+    color = ParameterName.where(name: 'color')
+    @sizes = @product.parameter_values.where(parameter_name_id: size)
+    @colors = @product.parameter_values.where(parameter_name_id: color)
+    @picture = Picture.find(@product.picture_id)
   end
 
   def update
@@ -53,6 +59,6 @@ class Admin::ProductsController < AdminController
   end
 
   def product_params
-    params.require(:product).permit(:id, :category_id, :title, :description, :pictures)
+    params.require(:product).permit(:id, :category_id, :title, :description, :picture_id)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226211409) do
+ActiveRecord::Schema.define(version: 20170303161413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,33 @@ ActiveRecord::Schema.define(version: 20170226211409) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "parameter_names", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+  end
+
+  create_table "parameter_values", force: :cascade do |t|
+    t.integer  "parameter_name_id"
+    t.string   "value"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "pictures", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "product_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "parameter_name_id"
+    t.integer  "parameter_value_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -58,6 +80,7 @@ ActiveRecord::Schema.define(version: 20170226211409) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "picture_id"
   end
 
 end

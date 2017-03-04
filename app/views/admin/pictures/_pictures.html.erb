@@ -1,5 +1,9 @@
-<% @pictures.each do |picture| %>
-    id: <%= picture.id %> <br>
+<%= simple_form_for [:admin, @product] do |f| %>
+
+    <% @pictures.each do |picture| %>
+        <%= f.input :picture_id,  as: :radio_buttons, :collection => [['Сделать главным', picture.id]], label: false, include_hidden: false %>
     <%= image_tag picture.image.small.url %>
-    <%= link_to 'Удалить', admin_product_picture_path(picture.product_id, picture), method: :delete,  data: { confirm: 'Удалить изображение?' } %><br>
+    <%= link_to 'Удалить', admin_product_picture_path(picture.product_id, picture), class: 'btn btn-primary', method: :delete,  data: { confirm: 'Удалить изображение?' } %><br>
+       <% end %>
+    <%= f.button :submit, 'Сделать главным' %>
 <% end %>

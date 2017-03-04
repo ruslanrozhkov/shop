@@ -1,0 +1,14 @@
+<div class="control-group">
+  <div class="form-group">
+
+    <%= simple_form_for(@product_item, :url => admin_product_items_path) do |f| %>
+
+        <% @parameter_names.each do |p| %>
+            <h3><%= p.title %></h3>
+            <%= f.collection_check_boxes :parameter_value_id, p.parameter_values.all, :id, :value, include_hidden: false %>
+        <% end %>
+
+        <%= f.button :submit, 'Отправить' %>
+    <% end %>
+  </div>
+</div>

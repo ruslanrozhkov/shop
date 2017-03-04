@@ -1,8 +1,12 @@
 <% @products.each do |product| %>
+
+    <strong>Заголовок:</strong>
+    <%= link_to product.title, admin_product_path(product) %><br>
     <strong>Категория:</strong>
     <%= product.category.name %><br>
-    <strong>Заголовок:</strong>
-    <%= product.title %><br>
-    <%= link_to 'Редактировать', edit_admin_product_path(product) %> |
-    <%= link_to  'Изображения', admin_product_pictures_path(product) %><br>
+
+    <%= image_tag picture(product.picture_id).image.thumb.url, class: 'thumbnail' %>
+
+    <%= link_to 'Редактировать', edit_admin_product_path(product), class: 'btn btn-round btn-success' %> |
+    <%= link_to  'Изображения', admin_product_pictures_path(product), class: 'btn btn-round btn-primary' %><br>
 <% end %>

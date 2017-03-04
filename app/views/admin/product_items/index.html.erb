@@ -1,0 +1,16 @@
+<div class="title_left">
+  <h3>Характеристики товара</h3>
+</div>
+
+<div class="col-md-12">
+  <div class="x_panel">
+    <div class="text-right">
+      <%= link_to 'Новый товар', new_admin_product_path(@product), class: 'btn btn-primary' %>
+    </div>
+    <div class="x_content">
+
+      <%= render 'product_items' %>
+
+    </div>
+  </div>
+</div>
