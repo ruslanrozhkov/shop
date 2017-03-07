@@ -1,0 +1,64 @@
+/ header_top
+.top_bg
+  .container
+    .header_top
+      .top_right
+        %ul
+          %li= link_to 'Контакты', '/contact'
+          %li= link_to 'Доставка', '/delivery'
+
+      .top_left
+        %h2 Телефон: +380-67-777-999-77
+
+      .clearfix
+
+/ header
+.header_bg
+  .container
+    .header
+      .head-t
+        .logo
+          = link_to '/' do
+            = image_tag 'logo.png', class: 'img-responsive'
+
+        / start header_right
+        .header_right
+          .rgt-bottom
+            .log
+              .login
+                #loginContainer
+                  = link_to  '/login', id: 'loginButton' do
+                    %span Login
+
+            .reg
+              = link_to 'Register', '/sign_up'
+            .cart.box_1
+              = link_to '/checkout' do
+                %h3
+                  %span.simpleCart_total $0.00
+                  (
+                  %span.simpleCart_quantity#simpleCart_quantity 0
+                  items)
+                  = image_tag 'bag.png'
+              %p
+                = link_to '(empty card)', 'javascript:;', class: 'simpleCart_empty'
+              .clearfix
+            .create_btn
+              = link_to 'CHECKOUT', '/checkout'
+            .clearfix
+            .search
+              = form_tag url: '/search', method: :get do
+                %input{placeholder: 'Найти...', name: 'q', value: params[:q], type: 'text'}
+                %input{type: 'submit', value: ''}
+            .clearfix
+          .clearfix
+      / start header menu
+      %ul.megamenu.skyblue
+        %li.active.grid
+          = link_to 'Главная', '/', class: 'color1'
+        %li.grid
+          = link_to 'Доставка', '/', class: 'color2'
+        %li.grid
+          = link_to 'Оплата', '/', class: 'color3'
+        %li.grid
+          = link_to 'Контакты', '/', class: 'color4'

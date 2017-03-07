@@ -1,0 +1,19 @@
+%h1= @product.title
+= image_tag @product.picture(@product.picture_id).image.thumb.url, class: 'thumbnail'
+- @product.pictures.each do |picture|
+  = image_tag picture.image.small.url
+%br/
+%strong Размер:
+%br/
+- @sizes.each do |size|
+  = size.value
+%br/
+%strong Цвет:
+%br/
+- @colors.each do |color|
+  = color.value
+%br/
+= @product.description.html_safe
+%br
+%strong Цена:
+= number_to_currency(@product.price.to_d / 100)

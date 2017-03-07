@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+
+  resources :categories, only: [:show]
+  resources :products, only: [:show]
 end

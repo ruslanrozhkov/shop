@@ -1,0 +1,56 @@
+.foot-top
+  .container
+    .col-md-6.s-c
+      .social-ic
+        %ul
+          %li
+            = link_to '/#' do
+              %i.facebok= ' '
+          %li
+            = link_to '/#' do
+              %i.twiter= ' '
+          %li
+            = link_to '/#' do
+              %i.goog= ' '
+          %li
+            = link_to '/#' do
+              %i.be= ' '
+          %li
+            = link_to '/#' do
+              %i.pp= ' '
+          .clearfix
+      .clearfix
+    .col-md-6.s-c
+      .stay
+        .stay-left
+          %form
+            %input{type: 'text', placeholder: 'Enter your email to join our newsletter'}
+        .btn-1
+          %form
+            %input{type: 'submit', value: 'join'}
+        .clearfix
+    .clearfix
+.footer
+  .container
+    .col-md-3.cust
+      %h4 Помощь
+    .col-md-2.abt
+      %h4 About
+      %li= link_to 'Контакты', '/contact'
+    .col-md-2.myac
+      %h4 Account
+    .col-md-5.our-st
+      .our-left
+        %h4 Наш магазин
+      .clearfix
+      %li
+        %i.add
+        Адрес магазина
+      %li
+        %i.phone
+        +380-67-777-999-77
+      %li
+        = link_to 'mailto:mail@gmail.com' do
+          %i.mail
+          mail@gmail.com
+    .clearfix

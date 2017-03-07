@@ -1,0 +1,8 @@
+- @products.each do |product|
+  %h3= link_to product.title, product_path(product)
+  %br/
+  = image_tag product.picture(product.picture_id).image.thumb.url, class: 'thumbnail'
+  = product.description.html_safe
+  %br
+  %strong Цена:
+  = number_to_currency(product.price.to_d / 100)

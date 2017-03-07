@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.etalage.min
+//= require jquery.jscrollpane.min
+//= require megamenu
+//= require menu_jquery
+//= require simpleCart.min
 //= require bootstrap-sprockets
 //= require_tree .
