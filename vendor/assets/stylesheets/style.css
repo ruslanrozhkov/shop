@@ -1749,13 +1749,17 @@ list-style: none;
 }
 .grid1_of_4{
 	float: left;
-	width: 23.22222%;
-	margin-left: 2.33333%;
+	/*width: 23.22222%;*/
+	/*margin-left: 10%;*/
 	text-align:center;
 }
 .grid1_of_4:first-child{
-	margin-left: 0;
+	/*margin-left: 0;*/
 	text-align:center;
+}
+.grid1_of_4 img {
+	display: block;
+	margin: 0 auto;
 }
 .grid1_of_4 h4 {
 	font-size:16px;

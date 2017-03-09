@@ -1,2 +1,54 @@
-%h2= @category.name
-= render 'products'
+/ content
+.container
+  .women_main
+    / start sidebar
+    .col-md-3.s-d
+      .w_sidebar
+        .w_nav1
+          %h4 Категории
+          %ul
+            - @categories.each do |cat|
+              %li= link_to cat.name, category_path(cat)
+        %h3 Фильтр
+        %section.sky-form
+          %h4 Размер
+          .row1.scroll-pane
+            .col.col-4
+              - @sizes.each do |size|
+                %label.checkbox
+                  %input{type: 'checkbox', name: 'checkbox'}
+                  %i
+                  = size.value
+        %section.sky-form
+          %h4 Цвет
+          .row1.scroll-pane
+            .col.col-4
+              - @colors.each do |color|
+                %label.checkbox
+                  %input{type: 'checkbox', name: 'checkbox'}
+                  %i
+                  = color.value
+
+    / start content
+    .col-md-9.w_content
+      .women
+        %h4= @category.name
+        %ul.w_nav
+          %li Sort
+          .clear
+        .clearfix
+      / grids_of_4
+      .col-md-16.grids_of_4
+        - @products.each do |product|
+          .col-md-6.grid1_of_4
+            .content_box
+              %h4= link_to product.title, product_path(product)
+              = link_to product_path(product) do
+                = image_tag product.picture(product.picture_id).image.thumb.url, class: 'img-responsive text'
+              .grid1.simpleCart_shelfItem
+                .item_add
+                  %span.item_price
+                    %h4= 'Цена: ' + number_to_currency(product.price.to_d / 100)
+                .item_add
+                  %span.item_price
+                    = link_to 'В корзину', '#'
